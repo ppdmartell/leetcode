@@ -1,0 +1,19 @@
+// https://leetcode.com/problems/plus-one/
+class PlusOne {
+
+    public static void main(String[] args) {
+        System.out.println(plusOne(new int[] { 1, 2, 3, 4, 5, 6, 7}));
+    }
+
+    private static int[] plusOne(int[] digits) {
+        int total = 1;
+        for (int i = digits.length; i > 0; i--) {
+            total = total + (digits[i - 1] * (int) Math.pow(10, digits.length - i));
+        }
+        
+        return Integer.toString(total).chars()
+            .map(c -> c - '0')
+            .toArray();
+    }
+
+}
